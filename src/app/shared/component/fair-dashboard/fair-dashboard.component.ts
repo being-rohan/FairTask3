@@ -8,13 +8,6 @@ import { Ifair } from '../../model/interface';
 })
 export class FairDashboardComponent implements OnInit {
 
-  selectedFair!: Ifair
-  constructor() { }
-
-  ngOnInit(): void {
-    this.selectedFair=this.fairsArr[0]
-  }
-
   fairsArr: Array<Ifair> = [
     {
       "fairId": "62f63b4caa0bf10009d0d86a",
@@ -141,5 +134,22 @@ export class FairDashboardComponent implements OnInit {
       "schoolDescription": "<span class=\"xnormaltextrun\"><span>The ISS iFairs&#174; make&#10;it easy for job-seeking educators and international school recruiters to meet,&#10;chat, and interview for their perfect match! Attending an iFair&#174; requires no&#10;software download or travel beyond your home. All you need is a Wi-Fi&#10;connection to join a vibrant world of international recruiters and candidates&#10;seeking to find and fill school positions.</span></span><span class=\"xeop\"><span>&#160;</span></span><div><br></div><div><span><b>The ISS iFair&#174;&#8239;(China Standard Time) will take place on November 5th, 2022 from 9:00 am to 1:00 pm China Standard Time (CST).&#160;</b></span><br></div><div><span><br></span></div><div>Use&#160;<a href=\"https://dateful.com/time-zone-converter\" target=\"_blank\"><b>this time zone converter</b></a>&#160;to see when the event will occur in your local time zone.<span><br></span></div><div><br></div><div><b>When planning your school's registration, please note that our iFair platform accommodates up to two representatives per school booth.&#160; Please reach out to your dedicated ISS Recruitment Relationship Manager if you have any questions.&#160;</b></div><div><span class=\"xeop\"><span><br></span></span></div><div><span class=\"xeop\"><i><b>Note:</b>&#160;Registration in this event is not limited to schools and candidates in the CST time zone. All active schools and candidates wishing to attend and make connections can register.&#160;</i><span><br></span></span></div>"
     },
   ]
+  selectedFair!: Ifair
+  selectedfairId!: string
+  constructor() { }
+
+  ngOnInit(): void {
+    this.selectedFair = this.fairsArr[0]
+    this.selectedfairId=this.fairsArr[0].fairId
+
+
+  }
+
+  getselectedid(fairobj: Ifair) {
+    this.selectedFair
+    this.selectedFair = fairobj
+    this.selectedfairId = fairobj.fairId
+  }
+
 
 }

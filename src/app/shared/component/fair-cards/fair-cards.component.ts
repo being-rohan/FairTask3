@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Ifair } from '../../model/interface';
 
 @Component({
@@ -7,22 +7,21 @@ import { Ifair } from '../../model/interface';
   styleUrls: ['./fair-cards.component.scss']
 })
 export class FairCardsComponent implements OnInit {
-  @Input() faiobj!: Ifair
-  constructor() { }
+  @Input() faiobj!: Ifair;
+  @Input() getclick!: string;
+  
+fairid!: string
 
-  ngOnInit(): void {
-    let card = Array.from(document.getElementsByClassName('card'));
-    card[0].classList.add('active')
-  }
-  setstyle(eve: HTMLDivElement) {
-    let card = Array.from(document.getElementsByClassName('card'));
-    card.map(ele => {
-      ele.classList.remove('active')
-    })
-    
+@Output() cardEmitter: EventEmitter<Ifair> = new EventEmitter<Ifair>()
+constructor() { }
 
-    eve.classList.add('active')
-  }
+ngOnInit(): void {
 
+}
 
+onselectId() {
+
+  this.cardEmitter.emit(this.faiobj)
+
+}
 }

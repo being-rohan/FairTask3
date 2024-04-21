@@ -1,4 +1,6 @@
-<div class="card my-4" #card>
+<div class="card my-4" (click)="onselectId() " [ngClass]="{
+    active:getclick==faiobj.fairId
+}">
     <div class="card-body">
         <h5 class="text-white">
             {{faiobj.fairName}}
@@ -10,7 +12,6 @@
             <p class="p-0">
                 <strong>Date</strong>:{{faiobj.startDate *1000| date
                 }}
-
             </p>
         </div>
     </div>
