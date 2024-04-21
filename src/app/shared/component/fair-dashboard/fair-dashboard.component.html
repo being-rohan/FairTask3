@@ -1,0 +1,8 @@
+<div class="row">
+    <div class="col-md-4">
+        <app-fair-cards (click)="selectedFair=post" [faiobj]="post" *ngFor="let post of fairsArr"></app-fair-cards>
+    </div>
+    <div class="col-md-8">
+        <app-fair-details [fairdetails]="selectedFair"></app-fair-details>
+    </div>
+</div>
